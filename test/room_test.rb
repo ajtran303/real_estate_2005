@@ -8,6 +8,18 @@ class RoomTest < Minitest::Test
     assert_instance_of Room, room
   end
 
+  def test_it_has_size_attributes
+    room_1 = Room.new(:bedroom, 10, '13')
+
+    assert_equal 10, room_1.length
+    assert_equal '13', room_1.width
+
+    room_2 = Room.new(:bedroom, 12, '16')
+
+    assert_equal 12, room_2.length
+    assert_equal '13', room_2.width
+  end
+
   def test_it_has_a_category
     skip
     room = Room.new(:bedroom, 10, '13')
