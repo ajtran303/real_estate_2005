@@ -21,6 +21,13 @@ class HouseTest < MiniTest::Test
     assert_empty house.rooms
   end
 
+  def test_it_starts_with_a_details_hash
+    house = House.new("$400000", "123 sugar lane")
+
+    assert_instance_of Hash, house.details
+    assert_empty house.details
+  end
+
   def test_it_can_add_rooms
     room_1 = Room.new(:bedroom, 10, '13')
     room_2 = Room.new(:bedroom, 11, '15')
@@ -38,6 +45,7 @@ class HouseTest < MiniTest::Test
     assert_equal 2, house.rooms.size
     assert_equal [room_1, room_2], house.rooms
   end
+
 
   def test_it_knows_the_details_of_every_room
     room_1 = Room.new(:bedroom, 10, '13')
