@@ -39,4 +39,22 @@ class HouseTest < MiniTest::Test
     assert_equal [room_1, room_2], house.rooms
   end
 
+  def test_it_knows_the_details_of_every_room
+    room_1 = Room.new(:bedroom, 10, '13')
+    room_2 = Room.new(:bedroom, 11, '15')
+    room_3 = Room.new(:living_room, 25, '15')
+    room_4 = Room.new(:basement, 30, '41')
+
+    house = House.new("$400000", "123 sugar lane")
+
+    house.add_room(room_1)
+    house.add_room(room_2)
+    house.add_room(room_3)
+    house.add_room(room_4)
+
+    expected_hash = {"price" => 400000, "address" => "123 sugar lane"}
+
+    assert_equal expected_hash, house.details
+  end
+
 end
