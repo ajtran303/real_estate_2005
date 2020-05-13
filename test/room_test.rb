@@ -17,17 +17,18 @@ class RoomTest < Minitest::Test
     room_2 = Room.new(:bedroom, 12, '16')
 
     assert_equal 12, room_2.length
-    assert_equal '13', room_2.width
+    assert_equal '16', room_2.width
   end
 
   def test_it_has_a_category
-    skip
     room = Room.new(:bedroom, 10, '13')
     assert_equal :bedroom, room.category
+
+    room2 = Room.new(:living_room, 15, '12')
+    assert_equal :living_room, room2.category
   end
 
   def test_it_can_get_area
-    skip
     room1 = Room.new(:bedroom, 10, '13')
     room2 = Room.new(:living_room, 15, '12')
     assert_equal 130, room1.area
