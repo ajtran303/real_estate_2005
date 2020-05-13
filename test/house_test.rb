@@ -24,8 +24,9 @@ class HouseTest < MiniTest::Test
   def test_it_starts_with_a_details_hash
     house = House.new("$400000", "123 sugar lane")
 
-    assert_instance_of Hash, house.details
-    assert_empty house.details
+    expected_hash = {"price" => 400000, "address" => "123 sugar lane"}
+
+    assert_equal expected_hash, house.details
   end
 
   def test_it_can_add_rooms
@@ -60,9 +61,9 @@ class HouseTest < MiniTest::Test
     house.add_room(room_3)
     house.add_room(room_4)
 
-    expected_hash = {"price" => 400000, "address" => "123 sugar lane"}
-
-    assert_equal expected_hash, house.details
+    assert_equal [room_1, room_2], house.rooms_from_category(:bedroom)
+    assert_equal [room_4], house.rooms_from_category(:basement)
+    assert_equal [room_3], house.rooms_from_category(:living_room)
   end
 
 end
