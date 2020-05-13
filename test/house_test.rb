@@ -6,11 +6,6 @@ require 'minitest/pride'
 
 class HouseTest < MiniTest::Test
 
-  def setup
-
-  end
-
-
   def test_it_exists_and_has_attributes
     house = House.new("$400000", "123 sugar lane")
 
@@ -22,8 +17,8 @@ class HouseTest < MiniTest::Test
   def test_it_starts_with_no_rooms
     house = House.new("$400000", "123 sugar lane")
 
+    assert_instance_of Array, house.rooms
     assert_empty house.rooms
-    assert_equal [], house.rooms
   end
 
   def test_it_can_add_rooms
@@ -37,7 +32,6 @@ class HouseTest < MiniTest::Test
 
     assert_equal 1, house.rooms.size
     assert_equal [room_1], house.rooms
-
 
     house.add_room(room_2)
 
