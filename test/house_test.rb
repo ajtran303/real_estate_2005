@@ -16,7 +16,7 @@ class HouseTest < MiniTest::Test
 
     assert_instance_of House, house
     assert_equal 400000, house.price
-    assert_equal "123 sugarlane", house.address
+    assert_equal "123 sugar lane", house.address
     assert_equal [], house.rooms
   end
 
