@@ -18,4 +18,8 @@ class House
     price_str.delete_prefix("$").to_i
   end
 
+  def above_market_average?
+    @price > 500_000
+  end
+
 end

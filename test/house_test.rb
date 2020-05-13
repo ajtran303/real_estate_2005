@@ -54,7 +54,7 @@ class HouseTest < MiniTest::Test
   def test_it_is_above_market_average_if_greater_than_500_000
     house = House.new("$600000", "126 saccha lane")
 
-    assert_equal false, house.above_market_average?
+    assert_equal true, house.above_market_average?
   end
 
   # room_1 = Room.new(:bedroom, 10, '13')
